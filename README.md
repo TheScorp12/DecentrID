@@ -5,3 +5,4 @@ a decentralized identity solution that enhances user interactions by associating
 
 **Tech Stack**: React, TailwindCSS, Hardhat, Wagmi, Rainbow kit and Solidity
 
+Presentation: https://docs.google.com/presentation/d/1IBgohBvtfWRVGqY9k1oQzmdf6Cpxn73uJ_hEQhW9QP8/edit?usp=sharing

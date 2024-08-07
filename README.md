@@ -1,5 +1,5 @@
 # DecentraID
-Enhancing User Interactions in Blockchain Transactions through Decentralized Identity Integration
+**Enhancing User Interactions in Blockchain Transactions through Decentralized Identity Integration**
 
 a decentralized identity solution that enhances user interactions by associating usernames and profile pictures with wallet addresses. This system should maintain the privacy and security of blockchain transactions while providing users with a means to verify and trust the identities of the parties they are engaging with. By doing so, we aim to foster a more trustworthy and transparent blockchain ecosystem.
 

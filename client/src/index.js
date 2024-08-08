@@ -13,6 +13,7 @@ import {
 } from 'wagmi/chains';
 import App from './App';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Welcome from './pages/welcome';
 
 const config = getDefaultConfig({
   appName: 'RainbowKit demo',
@@ -26,7 +27,7 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 const router = createBrowserRouter([
   {
     path: "/welcome",
-    element: <></>,
+    element: <Welcome></Welcome>,
   },
   {
     path: "/",

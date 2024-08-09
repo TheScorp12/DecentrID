@@ -1,40 +1,42 @@
 import React from 'react'
 import { useAccount, useReadContract, useWriteContract } from 'wagmi'
+import { Spin, ConfigProvider } from "antd";
 import ContractAbi from '../../Contractcalls/Abi/contractabi.json'
 import { useEffect } from 'react'
 import { Customconnectbutton } from '../../components/customconnectbutton'
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
-    console.log(process.env.REACT_APP_ContractAddress)
+    const navigate = useNavigate()
     let {data, isError, error, isSuccess, isPending, status} = useReadContract({
         address: process.env.REACT_APP_ContractAddress,
         abi: ContractAbi.abi,
         functionName:'getIdentityByAddress',
         args:[useAccount().address]
     })
-    // let {data: result, isSuccess: isWriteSuccess} = useWriteContract({
-    //     address: process.env.REACT_APP_ContractAddress,
-    //     abi: ContractAbi,
-    //     functionName:'registerIdentity',
-    //     args:["Mohammed Aasim", "Choudhry", "Scorp_12", "https://cdn-icons-png.flaticon.com/512/9203/9203764.png", false]
-    // })
 useEffect(()=>{
-    console.log('error',error)
-    console.log("iseroor",isError)
-    console.log("data",data)
-    console.log("isSuccess",isSuccess)
-    console.log("isPending", isPending)
-    console.log(status)
+    if(isError){
+        if(error.cause.data.args[0] === 'Identity does not exist'){
+            navigate('/signup')
+        }
+    }
+    else if(isSuccess){
+        console.log(data)
+    }
 },[isError, isPending, isSuccess,data, status])
 
-// useEffect(()=>{
-//     console.log("write data",result)
-//     console.log("Write success",isWriteSuccess)
-// },[result, isWriteSuccess])
   return (
-    <div className=''>
-      <Customconnectbutton></Customconnectbutton>
+    <div className='w-screen h-screen flex justify-center bg-[#1b1a21]'>
+        {isSuccess? 
+      <Customconnectbutton></Customconnectbutton> : 
+      <ConfigProvider
+  theme={{
+    token: {
+      colorPrimary: '#6b65c2'
+    },
+  }}
+>
+      <Spin className='self-center justify-center' size='large'/> </ConfigProvider>}
     </div>
   )
 }
-

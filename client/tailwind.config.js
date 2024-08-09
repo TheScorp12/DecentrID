@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily:{
-        'ClashGrotesk':['Clash Grotesk', 'sans'],
+        'ClashGrotesk':['Clash Grotesk', 'san-serif'],
       },
     },
   },

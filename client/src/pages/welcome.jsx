@@ -14,7 +14,7 @@ const Welcome = () => {
     },[walletAddress])
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-[#121212]">
-      <h1 className="text-9xl font-bold text-white font-ClashGrotesk tracking-widest" >
+      <h1 className="text-9xl font-bold text-white font-ClashGrotesk tracking-widest [text-shadow:4px_4px_8px_var(--tw-shadow-color)] shadow-[#6b65c2]" >
         Welcome
       </h1>
       <span className="text-2xl mb-8 text-[#bfb8e5]"> Connect your Wallet to get Started!</span>

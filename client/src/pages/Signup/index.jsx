@@ -45,8 +45,8 @@ const Signup = () => {
     }
 
   return (
-    <div className='h-screen w-screen bg-[#1b1a21] flex flex-col justify-center'>
-      <div className='w-1/2 h-2/3 bg-[#6F61C0] self-center rounded-3xl flex flex-col bg-opacity-60'>
+    <div className='min-h-screen w-screen bg-[#1b1a21] flex flex-col justify-center'>
+      <div className='w-fit h-fit bg-[#6F61C0] self-center rounded-3xl flex flex-col bg-opacity-60'>
       <form
               className="flex flex-col p-10 self-center gap-2"
               onSubmit={submitHandler}

@@ -5,6 +5,7 @@ import { readContract} from "wagmi/actions";
 import { polygonAmoy } from "wagmi/chains";
 import ContractAbi from '../../../Contractcalls/Abi/contractabi.json'
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
+import UserCard from "./usercard";
 
 const Search = () => {
     const {Search} = Input
@@ -51,7 +52,7 @@ const Search = () => {
   return (
     <div className="flex flex-col gap-4">
         <Search className='mt-20 mx-4' placeholder="Search Address or Username" onSearch={onSearch} style={{width:'300px', height:'100px'}}></Search>
-        {isSearching?<div className=""></div>:<></>}
+        {!searchData?<div className=""></div>:<UserCard user={searchData}></UserCard>}
     </div>
   )
 }

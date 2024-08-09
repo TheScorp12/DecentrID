@@ -1,5 +1,5 @@
 import { useAccount } from "wagmi"
-import { Customconnectbutton } from "../components/customconnectbutton"
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useEffect } from "react"
 import {useNavigate } from "react-router-dom"
 const Welcome = () => {
@@ -13,12 +13,11 @@ const Welcome = () => {
         }
     },[walletAddress])
   return (
-    <div className="bg-black h-screen w-full p-8">
-      <Customconnectbutton></Customconnectbutton>
     <div className="flex flex-col items-center justify-center h-screen bg-[#121212]">
-      <h1 className="text-5xl font-bold mb-8 text-white" style={{ fontFamily: 'ClashGrotesk' }}>
+      <h1 className="text-9xl font-bold text-white font-ClashGrotesk tracking-widest" >
         Welcome
       </h1>
+      <span className="text-2xl mb-8 text-[#bfb8e5]"> Connect your Wallet to get Started!</span>
       <div>
         <ConnectButton.Custom>
           {({ account, openAccountModal, openConnectModal, openChainModal, mounted }) => {

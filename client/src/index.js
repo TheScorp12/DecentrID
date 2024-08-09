@@ -7,11 +7,12 @@ import { getDefaultConfig, RainbowKitProvider } from '@rainbow-me/rainbowkit';
 import { WagmiProvider, useAccount, useSwitchChain} from 'wagmi';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RequireAuth from './app/RequireLogin';
+import Home from './pages/Home'
 
 import {
+  polygonAmoy,
   polygonMumbai,
 } from 'wagmi/chains';
-import App from './App';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Welcome from './pages/welcome';
 
@@ -19,7 +20,7 @@ const config = getDefaultConfig({
   appName: 'RainbowKit demo',
   projectId: 'YOUR_PROJECT_ID',
   chains: [
-    polygonMumbai,
+    polygonAmoy,
   ],
 });
 
@@ -35,7 +36,7 @@ const router = createBrowserRouter([
     children: [
       {
       path:'/home',
-      element:<></>,
+      element:<Home></Home>,
       }
     ]
   }

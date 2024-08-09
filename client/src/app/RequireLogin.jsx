@@ -6,13 +6,12 @@ const RequireAuth = () => {
     const walletAddress = useAccount().address;
     const location = useLocation();
     let userchain = 0;
-    console.log(walletAddress);
     const { chains, switchChain } = useSwitchChain();
     userchain = useAccount().chainId;
     useEffect(() => {
-    if(walletAddress&&(userchain!=80001))
+    if(walletAddress&&(userchain!==80002))
     {
-      switchChain({chainId:80001})
+      switchChain({chainId:80002})
     }
   },[userchain])
 

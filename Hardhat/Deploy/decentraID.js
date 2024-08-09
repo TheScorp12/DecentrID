@@ -2,10 +2,9 @@ const hre = require("hardhat");
 
 async function main() {
   // Get the contract to deploy
-  const DecentraID = await hre.ethers.getContractFactory("DecentraID");
-  const decentraID = await DecentraID.deploy();
+  const DecentraID = await hre.ethers.deployContract("DecentraID");
 
-  await decentraID.deployed();
+  await DecentraID.deployed();
 
   console.log("DecentraID deployed to:", decentraID.address);
 }

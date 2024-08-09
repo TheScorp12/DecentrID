@@ -1,12 +1,14 @@
 import React from 'react'
 import { useAccount, useReadContract, useWriteContract } from 'wagmi'
-import { Spin, ConfigProvider, Dropdown } from "antd";
+import { Spin, ConfigProvider, Dropdown , Tabs } from "antd";
 import ContractAbi from '../../Contractcalls/Abi/contractabi.json'
 import { useEffect, useState } from 'react'
 import { Customconnectbutton } from '../../components/customconnectbutton'
 import { useNavigate } from 'react-router-dom';
 import Logo from "../../images/DecentraIDFull.png"
 import Search from './components/search';
+import Contacts from './components/contacts';
+import Settings from './components/settings';
 
 export default function Home() {
     const navigate = useNavigate();
@@ -25,6 +27,7 @@ useEffect(()=>{
     }
     else if(isSuccess){
         setUserData(data)
+        console.log(data)
     }
 },[isError, isPending, isSuccess,data, status])
 
@@ -36,6 +39,24 @@ const items=[
             <Customconnectbutton></Customconnectbutton>
         ),
     }
+]
+
+const Tabitems=[
+    {
+        key: '1',
+        label: 'Search',
+        children: <Search/>,
+      },
+      {
+        key: '2',
+        label: 'Contacts',
+        children: <Contacts></Contacts>,
+      },
+      {
+        key: '3',
+        label: 'Settings',
+        children: <Settings/>,
+      },
 ]
 
   return (
@@ -50,7 +71,9 @@ const items=[
                 <ConfigProvider
                 theme={{
                     token: {
-                        colorBgElevated: '#302f36'
+                        colorBgElevated: '#302f36',
+                        colorPrimary: "#FFFFFF",
+                        colorText: "#A9A99F",
                     },
                 }}
                 >
@@ -66,7 +89,15 @@ const items=[
             </div>
         </Dropdown></ConfigProvider>
             </div>
-            <Search></Search>
+            <ConfigProvider
+                theme={{
+                    token: {
+                        colorBgElevated: '#302f36',
+                        colorPrimary: "#FFFFFF",
+                        colorText: "#A9A99F",
+                    },
+                }}
+                ><Tabs className='self-center' defaultActiveKey="1" items={Tabitems}/></ConfigProvider>
         </div>: 
       <ConfigProvider
   theme={{

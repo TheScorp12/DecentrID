@@ -9,6 +9,7 @@ import { getDefaultConfig } from "@rainbow-me/rainbowkit";
 const Search = () => {
     const {Search} = Input
     const [isSearching, setIsSearching] = useState(false);
+    const [searchData, setSearchData] = useState()
     const config = getDefaultConfig({
         appName: 'RainbowKit demo',
         projectId: 'YOUR_PROJECT_ID',
@@ -17,11 +18,8 @@ const Search = () => {
         ],
       });
 
-    useEffect(()=>{
-
-    },[isSearching])
-
     const onSearch = async (value) =>{
+        setSearchData()
         if(value.startsWith('0x')){
             setIsSearching(true)
             try{
@@ -33,6 +31,7 @@ const Search = () => {
                     chainId: polygonAmoy.id
                 })
                 console.log(result)
+                setSearchData(result)
         }
             catch(error){
                 message.error(error)
@@ -48,10 +47,11 @@ const Search = () => {
             setIsSearching(true)
         }
     }
-    
+
   return (
-    <div>
+    <div className="flex flex-col gap-4">
         <Search className='mt-20 mx-4' placeholder="Search Address or Username" onSearch={onSearch} style={{width:'300px', height:'100px'}}></Search>
+        {isSearching?<div className=""></div>:<></>}
     </div>
   )
 }

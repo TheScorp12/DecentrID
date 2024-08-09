@@ -6,10 +6,11 @@ import { useEffect, useState } from 'react'
 import { Customconnectbutton } from '../../components/customconnectbutton'
 import { useNavigate } from 'react-router-dom';
 import Logo from "../../images/DecentraIDFull.png"
+import Search from './components/search';
 
 export default function Home() {
     const navigate = useNavigate();
-    const [userData,setUserData] = useState()
+    const [userData,setUserData] = useState();
     let {data, isError, error, isSuccess, isPending, status} = useReadContract({
         address: process.env.REACT_APP_ContractAddress,
         abi: ContractAbi.abi,
@@ -27,6 +28,7 @@ useEffect(()=>{
     }
 },[isError, isPending, isSuccess,data, status])
 
+
 const items=[
     {
         key:1,
@@ -39,13 +41,20 @@ const items=[
   return (
     <div className='w-screen h-screen flex justify-center bg-[#1b1a21]'>
         {isSuccess? 
-        <div className='flex-flex-col w-screen'>
+        <div className='flex flex-col w-screen'>
             <div className='w-full bg-[#6b65c2] h-[100px] flex flex-row px-8 items-center gap-8 justify-between'>
                 <div className='flex flex-row gap-8 items-center'>
                 <img className='w-[70px] h-[70px]' src={Logo}></img>
                 <span className='font-ClashGrotesk text-5xl font-bold text-white tracking-wider'>DecentraID</span>
                 </div>
-                <Dropdown menu={{items}} placement='bottom' className='justify-self-end'>
+                <ConfigProvider
+                theme={{
+                    token: {
+                        colorBgElevated: '#302f36'
+                    },
+                }}
+                >
+                <Dropdown menu={{items}} placement='bottomRight' arrow className='justify-self-end'>
             <div className=" items-center flex relative">
                 <img src={data[3]}
                     className="object-cover btn- w-[60px] h-[60px] rounded-full mr-2" alt="" />
@@ -55,9 +64,9 @@ const items=[
                     <p className="font-medium text-sm text-white text-opacity-70">{data[1]}</p>
                 </div>
             </div>
-        </Dropdown>
+        </Dropdown></ConfigProvider>
             </div>
-
+            <Search></Search>
         </div>: 
       <ConfigProvider
   theme={{

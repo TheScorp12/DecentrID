@@ -35,7 +35,7 @@ export const Customconnectbutton = () => {
               {(() => {
                 if (!connected) {
                   return (
-                    <button className="w-[345px] h-[89px] rounded-full border-solid border-white font-clashgrotesk font-normal text-[26px] text-white" onClick={openConnectModal} type="button">
+                    <button className="w-[345px] h-[89px] rounded-full border-solid border-white font-ClashGrotesk font-normal text-[26px] text-white" onClick={openConnectModal} type="button">
                       Connect Your Wallet
                     </button>
                   );
@@ -48,8 +48,8 @@ export const Customconnectbutton = () => {
                   );
                 }
                 return (
-                  <div className= "flex gap-4 h-[37px] items-center bg-[#7d75c9]">
-                    <button className='flex p-4 h-[37px] bg-[#7d75c9] rounded-full font-semibold  text-white items-center justify-evenly'
+                  <div className= "flex gap-4 h-[37px] items-center ">
+                    <button className='flex p-4 h-[37px] bg-[#bfb8e5] rounded-full font-semibold font-ClashGrotesk text-black items-center justify-evenly'
                       onClick={openChainModal}
                       style={{ display: 'flex', alignItems: 'center' }}
                       type="button"
@@ -80,7 +80,7 @@ export const Customconnectbutton = () => {
                       </svg>
   
                     </button>
-                    <button className='flex p-4 bg-[#7d75c9] h-[37px] rounded-full font-clashgrotesk font-semibold  text-white items-center' onClick={openAccountModal} type="button">
+                    <button className='flex p-4 bg-[#bfb8e5] h-[37px] rounded-full font-ClashGrotesk font-semibold  text-black items-center' onClick={openAccountModal} type="button">
                       {account.displayName}
                       {account.displayBalance
                         ? ` (${account.displayBalance})`

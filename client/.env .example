@@ -1,1 +1,1 @@
-REACT_APP_ContractAddress: '<Contract Address>'
+REACT_APP_ContractAddress = '<Contract Address>'
